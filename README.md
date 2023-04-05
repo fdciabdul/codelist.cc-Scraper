@@ -9,7 +9,11 @@ DEMO : https://nulled.imtaqin.id
 
 you must install plugin `WordPress REST API Authentication` and create Basic Authetication
 
-Links : https://wordpress.org/plugins/wp-rest-api-authentication/
+and then install `Quick Download Button` Plugin
+
+Link : https://wordpress.org/plugins/wp-rest-api-authentication/
+
+Link : https://wordpress.org/plugins/quick-download-button/
 
 # Running 
 
