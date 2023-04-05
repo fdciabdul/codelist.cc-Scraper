@@ -2,7 +2,7 @@
 Scraping from site codelist.cc and auto Post to Wordpress 
 
 
-DEMO : https://nulled.imtaqon.id
+DEMO : https://nulled.imtaqin.id
 
 
 # Requirements 
