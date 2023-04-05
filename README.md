@@ -11,6 +11,17 @@ you must install plugin `WordPress REST API Authentication` and create Basic Aut
 
 Links : https://wordpress.org/plugins/wp-rest-api-authentication/
 
+# Running 
+
+change `config.js` 
+
+```javascript
+module.exports = {
+    Authorization_Key: "", // this is from WordPress REST API Authentication` and create Basic Authetication
+    siteUrl: "https://nulled.imtaqin.id", // your wp site
+    howManyPages: 1, // how many pages that you will scrape , 1 is mean just 1 page 
+};
+```
 
 # NOTE : 
 
