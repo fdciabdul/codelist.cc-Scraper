@@ -14,7 +14,7 @@ puppeteer.use(StealthPlugin());
                 headless: false
         });
         const link = [];
-        for (let t = 1; t < config.howManyPages; t++) {
+        for (let t = 1; t < config.howManyPages +1; t++) {
                 const page = await browser.newPage();
                 await page.goto(`https://codelist.cc/php-script/pgs/${t}`, {
                         waitUntil: "networkidle2",
@@ -49,6 +49,7 @@ puppeteer.use(StealthPlugin());
                 await pages.waitForSelector(".single-body");
                 color("Scraping Data from : " + link[i].title, "yellow");
                 // Save the image locally
+                const imageSrc = await pages.$eval(".single-body img", (img) => img.src);
                 const imageResponse = await fetch(imageSrc);
                 const imageBuffer = await imageResponse.buffer();
                 const imagePath = path.join(__dirname, "images", `image${i}.jpg`);
