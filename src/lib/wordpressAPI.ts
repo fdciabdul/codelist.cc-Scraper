@@ -35,7 +35,7 @@ export const createPost = async (title: string, contentHtml: string, imagePath: 
       title,
       content: contentHtml,
       status: 'publish',
-      categories: [2, 3],
+      categories: [categoryId],
       tags: [4, 5],
       featured_media: media.id,
     };

@@ -39,7 +39,7 @@ const progressBar = new cliProgress.SingleBar(progressBarOptions, cliProgress.Pr
     const browser = await puppeteer.launch({ headless: "new" });
     const categories = await getCategories();
     const categoryId = await selectCategory(categories);
-
+        console.log(`Selected category: ${categoryId}`);
     const linksList = await scrapeLinks(browser);
 
     progressBar.start(linksList.length, 0, { task: "Scraping" });
