@@ -15,7 +15,7 @@ Link : https://wordpress.org/plugins/wp-rest-api-authentication/
 
 # Running 
 
-change `config.js` 
+change `config.ts` 
 
 ```javascript
 module.exports = {
@@ -26,6 +26,18 @@ module.exports = {
     safeLinkUrlApi: "https://safelink?api=apikey&url=",
 };
 ```
+Install dependencies :
+
+```bash
+npm install
+```
+
+run with tsx
+
+```bash
+npx tsx main.ts
+```
+
 
 ### NOTE : 
 
