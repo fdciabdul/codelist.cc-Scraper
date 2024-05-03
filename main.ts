@@ -7,6 +7,7 @@ import { createPost, getCategories } from "./src/lib/wordpressAPI";
 import { selectCategory } from "./src/utils/selectCategory";
 import process from "process";
 import cliProgress from "cli-progress";
+import { config } from "./config";
 process.removeAllListeners('warning');
 puppeteer.use(StealthPlugin());
 
@@ -39,14 +40,14 @@ const progressBar = new cliProgress.SingleBar(progressBarOptions, cliProgress.Pr
     const browser = await puppeteer.launch({ headless: "new" });
     const categories = await getCategories();
     const categoryId = await selectCategory(categories);
-        console.log(`Selected category: ${categoryId}`);
-    const linksList = await scrapeLinks(browser);
+
+    progressBar.start(config.howManyPages, 0, { task: "Collecting Pages" });
+
+    const linksList = await scrapeLinks(browser, updateProgress);
+
+    progressBar.stop();
 
     progressBar.start(linksList.length, 0, { task: "Scraping" });
-
-    const updateProgress = () => {
-        progressBar.increment();
-    };
 
     for (let i = 0; i < linksList.length; i++) {
         const link = linksList[i];
@@ -58,3 +59,7 @@ const progressBar = new cliProgress.SingleBar(progressBarOptions, cliProgress.Pr
     progressBar.stop();
     await browser.close();
 })();
+
+function updateProgress() {
+    progressBar.increment(); // Increment the progress bar by 1
+}
